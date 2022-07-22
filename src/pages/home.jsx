@@ -32,6 +32,7 @@ const Home = () => {
 
   return (
     <div className="home">
+      HELLO
       <section className="hero">
         <h1 className="hero-title">Hero content</h1>
         <div className="hero-content">
@@ -41,7 +42,6 @@ const Home = () => {
           <p className="text">Open a savings account with Argent Bank today!</p>
         </div>
       </section>
-
       <section className="features">
         <Feature
           title={data[0].title}
