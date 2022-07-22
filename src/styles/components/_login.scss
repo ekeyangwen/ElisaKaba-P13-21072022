@@ -1,0 +1,74 @@
+@media screen and (max-width: 768px) {
+  .loginDarkBackground {
+    background-color: #12002b;
+    padding-bottom: 300px;
+    display: flex;
+    justify-content: center;
+    .sign-in-content {
+      box-sizing: border-box;
+      background-color: white;
+      width: 300px;
+      margin: 50px;
+      padding: 2rem;
+    }
+    .signToLogin {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .main-nav-item {
+      text-decoration: none;
+      margin: 10px;
+      font-weight: bold;
+      color: #2c3e50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .okToSign {
+      display: flex;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+    .input-wrapper {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    #userInput {
+      padding: 5px;
+      font-size: 1.2rem;
+      border: solid 0.5px;
+      border-radius: 5px;
+      box-shadow: none;
+      border-color: rgb(133, 133, 133);
+    }
+    #password,
+    #userName {
+      font-weight: bold;
+      height: 20px;
+    }
+    #remember-me {
+      font-weight: 500;
+    }
+    .sign-in-button {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      border-color: #00bc77;
+      background-color: #00bc77;
+      color: #fff;
+      text-decoration: underline;
+      box-shadow: none;
+      border: 0 none;
+      outline: 0;
+    }
+  }
+}
