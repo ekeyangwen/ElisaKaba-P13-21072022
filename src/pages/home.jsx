@@ -41,7 +41,6 @@ const Home = () => {
           <p className="text">Open a savings account with Argent Bank today!</p>
         </div>
       </section>
-
       <section className="features">
         <Feature
           title={data[0].title}
