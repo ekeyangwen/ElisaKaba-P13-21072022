@@ -32,7 +32,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      HELLO
       <section className="hero">
         <h1 className="hero-title">Hero content</h1>
         <div className="hero-content">
