@@ -15,7 +15,7 @@ const Home = () => {
       id: 1,
       title: "More savings means higher rates",
       content:
-        "La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.",
+        "The more you save with us, the higher your interest rate will be!",
       image: "./img/icon-money.png",
       alt: "Money Icon",
     },
@@ -24,7 +24,7 @@ const Home = () => {
       id: 2,
       title: "Service",
       content:
-        "The more you save with us, the higher your interest rate will be!",
+        "We use top of the line encryption to make sure your data and money is always safe.",
       image: "./img/icon-security.png",
       alt: "Security Icon",
     },

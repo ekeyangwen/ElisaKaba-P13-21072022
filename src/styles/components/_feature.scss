@@ -1,5 +1,6 @@
 .features {
   display: flex;
+  flex-direction: COLUMN;
   align-items: center;
   justify-content: center;
 
@@ -12,18 +13,16 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-    padding: 30px;
+    padding: 2.5rem;
   }
   .feature-item-title {
     color: #222;
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    width: 300px;
     text-align: center;
   }
   .feature-item-content {
-    width: 620px;
     text-align: center;
   }
   .feature-item-icon {

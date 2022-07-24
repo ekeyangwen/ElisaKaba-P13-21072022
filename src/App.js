@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Home from "./pages/home";
 import Footer from "./Components/Footer";
 import Login from "./pages/login";
+import Account from "./pages/account";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/account" element={<Account />} />
         </Routes>
         <Footer />
       </BrowserRouter>
