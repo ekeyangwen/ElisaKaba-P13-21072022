@@ -1,5 +1,6 @@
 import React from "react";
 import UserAccount from "../Components/UserAccount";
+import { useParams } from "react";
 
 const Account = () => {
   const data = [
@@ -30,18 +31,18 @@ const Account = () => {
               <br />
               {data[0].firstName} {data[0].lastName} !
             </h1>
-            <button class="edit-button">Edit Name</button>
+            <button className="edit-button">Edit Name</button>
           </div>
           <UserAccount
             title={data[0].title}
             amount={data[0].amount}
             description={data[0].description}
           />
-          <UserAccount
+          {/* <userAccount
             title={data[1].title}
             amount={data[1].amount}
             description={data[1].description}
-          />
+          /> */}
         </section>
       </section>
     </div>

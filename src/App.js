@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Footer from "./Components/Footer";
 import Login from "./pages/login";
 import Account from "./pages/account";
+import NotFound from "./pages/notFound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/account" element={<Account />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </BrowserRouter>
