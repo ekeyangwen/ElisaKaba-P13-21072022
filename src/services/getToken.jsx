@@ -1,4 +1,4 @@
-const getToken = async () => {
+const GetToken = async () => {
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
@@ -17,4 +17,4 @@ const getToken = async () => {
   }
 };
 
-export default getToken;
+export default GetToken;

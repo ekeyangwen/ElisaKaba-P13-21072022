@@ -1,29 +1,21 @@
 import React from "react";
 import SignIn from "../Components/SignIn";
 import getAccount from "../services/getAccount";
-import GetSignUp from "../services/getSignUp";
 import getToken from "../services/getToken";
+import putProfile from "../services/putProfile";
 
 const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const awaitToken = await getToken();
-    const awaitSignUp = await GetSignUp();
     if (awaitToken.status === 200) {
       const token = awaitToken.body.token;
-      console.log(token);
-      console.log(awaitSignUp);
       getAccount(token);
+      putProfile(token);
 
       return token;
     }
   };
-
-  // const submitToken = () => {
-  //   console.log("Token reçu");
-  //   const awaitAccount = getAccount();
-  //   console.log(awaitAccount);
-  // };
 
   return (
     <div className="login">

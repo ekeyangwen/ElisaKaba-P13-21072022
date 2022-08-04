@@ -1,6 +1,5 @@
 import React from "react";
 import UserAccount from "../Components/UserAccount";
-import { useParams } from "react";
 
 const Account = () => {
   const data = [
