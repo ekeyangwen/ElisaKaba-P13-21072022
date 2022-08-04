@@ -1,12 +1,14 @@
-const getAccount = async (token) => {
-  const bearerToken = `Bearer ${token}`;
-  console.log(bearerToken);
+const GetSignUp = async () => {
   try {
-    const response = await fetch("http://localhost:3001/api/v1/user/profile", {
+    const response = await fetch("http://localhost:3001/api/v1/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: bearerToken,
+      },
+      body: {
+        password: "password456",
+        firstName: "Steve",
+        lastName: "Rogers",
       },
     });
     const data = await response.json();
@@ -18,4 +20,4 @@ const getAccount = async (token) => {
   }
 };
 
-export default getAccount;
+export default GetSignUp;
