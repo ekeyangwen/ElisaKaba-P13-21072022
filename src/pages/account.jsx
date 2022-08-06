@@ -1,25 +1,16 @@
 import React from "react";
 import UserAccount from "../Components/UserAccount";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { editUser } from "../features/usersSlice";
 
 const Account = () => {
-  const data = [
-    {
-      id: 0,
-      firstName: "Tony",
-      lastName: "Stark",
-      title: "Argent Bank Checking (x8349)",
-      amount: "$2,082.79",
-      description: "Available Balance",
-    },
-    {
-      id: 1,
-      firstName: "Steve",
-      lastName: "Rogers",
-      title: "Argent Bank Checking (x8349)",
-      amount: "$2,082.79",
-      description: "Available Balance",
-    },
-  ];
+  const users = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+  const editButton = () => {
+    dispatch(editUser);
+  };
+
   return (
     <div>
       <section className="loginDarkBackground">
@@ -28,20 +19,17 @@ const Account = () => {
             <h1 className="userName">
               Welcome back
               <br />
-              {data[0].firstName} {data[0].lastName} !
+              {users[0].firstName} {users[0].lastName} !
             </h1>
-            <button className="edit-button">Edit Name</button>
+            <button className="edit-button" onClick={editButton}>
+              Edit Name
+            </button>
           </div>
           <UserAccount
-            title={data[0].title}
-            amount={data[0].amount}
-            description={data[0].description}
+            title={users[0].title}
+            amount={users[0].amount}
+            description={users[0].description}
           />
-          {/* <userAccount
-            title={data[1].title}
-            amount={data[1].amount}
-            description={data[1].description}
-          /> */}
         </section>
       </section>
     </div>

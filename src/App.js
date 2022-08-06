@@ -5,6 +5,8 @@ import Footer from "./Components/Footer";
 import Login from "./pages/login";
 import Account from "./pages/account";
 import NotFound from "./pages/notFound";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 
 function App() {
   return (

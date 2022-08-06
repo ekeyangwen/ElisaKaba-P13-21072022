@@ -2,21 +2,39 @@ import React from "react";
 import SignIn from "../Components/SignIn";
 import getAccount from "../services/getAccount";
 import getToken from "../services/getToken";
-import putProfile from "../services/putProfile";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+// import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { addUser, logged } from "../features/usersSlice";
 
 const Login = () => {
+  // const navigate = useNavigate();
+
+  // const passwordInput = useRef();
+  // const userInput = useRef();
+  const dispatch = useDispatch();
+  const userisLogged = useSelector((state) =>
+    state.users.users.map((user) => {
+      return user.isLogged;
+    })
+  );
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const awaitToken = await getToken();
     if (awaitToken.status === 200) {
+      dispatch({
+        userisLogged,
+        type: logged(true),
+      });
       const token = awaitToken.body.token;
-      getAccount(token);
-      putProfile(token);
-
-      return token;
+      const awaitAccount = await getAccount(token);
+      const email = awaitAccount.body.email;
+      console.log(email);
     }
   };
-
   return (
     <div className="login">
       <section className="loginDarkBackground">
@@ -27,13 +45,23 @@ const Login = () => {
               <label id="userName" htmlFor="userInput">
                 Username
               </label>
-              <input type="text" id="userInput" />
+              <input
+                // ref={userInput}
+                type="text"
+                id="userInput"
+                // required={true}
+              />
             </div>
             <div className="input-wrapper">
               <label id="password" htmlFor="passwordInput">
                 Password
               </label>
-              <input type="password" id="passwordInput" />
+              <input
+                // ref={passwordInput}
+                type="password"
+                id="passwordInput"
+                // required={true}
+              />
             </div>
             <div className="input-remember">
               <label id="remenberCheckBox" htmlFor="remember-me">
