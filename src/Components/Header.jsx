@@ -1,8 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SignIn from "./SignIn";
+import { useSelector } from "react-redux";
+import SignOut from "./SignOut";
 
 const Header = () => {
+  const userisLogged = useSelector((state) => state.users.isLogged);
   return (
     <section className="header">
       <div className="logoNavAndSignIn">
@@ -14,7 +17,7 @@ const Header = () => {
           ></img>
           <h1 className="headerTitle">Argent Bank</h1>
         </NavLink>{" "}
-        <SignIn />
+        {userisLogged ? <SignOut /> : <SignIn />}
       </div>
     </section>
   );

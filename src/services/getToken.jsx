@@ -1,4 +1,4 @@
-const GetToken = async () => {
+const GetToken = async (userName, password) => {
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
@@ -6,8 +6,8 @@ const GetToken = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: "steve@rogers.com",
-        password: "password456",
+        email: userName,
+        password: password,
       }),
     });
     const data = await response.json();

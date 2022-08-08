@@ -1,81 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 import SignIn from "../Components/SignIn";
 import getAccount from "../services/getAccount";
 import getToken from "../services/getToken";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { addUser, logged } from "../features/usersSlice";
+import { login } from "../features/usersSlice";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
-  // const navigate = useNavigate();
-
-  // const passwordInput = useRef();
-  // const userInput = useRef();
   const dispatch = useDispatch();
-  const userisLogged = useSelector((state) =>
-    state.users.users.map((user) => {
-      return user.isLogged;
-    })
-  );
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const userisLogged = useSelector((state) => state.users.isLogged);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const awaitToken = await getToken();
+    const awaitToken = await getToken(userName, password);
+
     if (awaitToken.status === 200) {
-      dispatch({
-        userisLogged,
-        type: logged(true),
-      });
       const token = awaitToken.body.token;
       const awaitAccount = await getAccount(token);
-      const email = awaitAccount.body.email;
-      console.log(email);
+
+      if (awaitAccount.status === 200) {
+        dispatch(login());
+      }
     }
   };
-  return (
-    <div className="login">
-      <section className="loginDarkBackground">
-        <section className="sign-in-content">
-          <form className="loginForm" onSubmit={handleSubmit}>
-            <SignIn />
-            <div className="input-wrapper">
-              <label id="userName" htmlFor="userInput">
-                Username
-              </label>
-              <input
-                // ref={userInput}
-                type="text"
-                id="userInput"
-                // required={true}
-              />
-            </div>
-            <div className="input-wrapper">
-              <label id="password" htmlFor="passwordInput">
-                Password
-              </label>
-              <input
-                // ref={passwordInput}
-                type="password"
-                id="passwordInput"
-                // required={true}
-              />
-            </div>
-            <div className="input-remember">
-              <label id="remenberCheckBox" htmlFor="remember-me">
-                Remember me
-              </label>
-              <input type="checkbox" id="remember-me" />
-            </div>
+  if (userisLogged) {
+    return <Navigate to="/account" />;
+  }
 
-            <button className="sign-in-button">Sign In</button>
-          </form>
-        </section>
+  return (
+    <section className="loginDarkBackground">
+      <section className="sign-in-content">
+        <form className="loginForm" onSubmit={handleSubmit}>
+          <SignIn />
+          <div className="input-wrapper">
+            <label id="userName" htmlFor="userInput">
+              Username
+            </label>
+            <input
+              type="text"
+              id="userInput"
+              required={true}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
+            />
+          </div>
+          <div className="input-wrapper">
+            <label id="password" htmlFor="passwordInput">
+              Password
+            </label>
+            <input
+              type="password"
+              id="passwordInput"
+              required={true}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <div className="input-remember">
+            <label id="remenberCheckBox" htmlFor="remember-me">
+              Remember me
+            </label>
+            <input type="checkbox" id="remember-me" />
+          </div>
+
+          <button className="sign-in-button">Sign In</button>
+        </form>
       </section>
-    </div>
+    </section>
   );
 };
-
 export default Login;

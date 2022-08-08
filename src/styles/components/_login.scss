@@ -10,13 +10,12 @@
       width: 300px;
       margin: 50px;
       padding: 2rem;
-    }
-    .signToLogin {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
+
+      .signIn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
     }
     .main-nav-item {
       text-decoration: none;
@@ -28,6 +27,7 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .okToSign {
       display: flex;
       text-decoration: none;

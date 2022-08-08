@@ -13,6 +13,7 @@ const GetAccount = async (token) => {
 
     const data = await response.json();
     console.log(data);
+
     return data;
   } catch (erreur) {
     return erreur;
