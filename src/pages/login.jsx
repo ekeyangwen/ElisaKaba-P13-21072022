@@ -14,6 +14,7 @@ const Login = () => {
 
   const userisLogged = useSelector((state) => state.users.isLogged);
 
+  console.log(userisLogged);
   const handleSubmit = async (e) => {
     e.preventDefault();
 

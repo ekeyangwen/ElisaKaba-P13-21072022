@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import UserAccount from "../Components/UserAccount";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
@@ -9,9 +9,17 @@ const Account = () => {
 
   const edit = useSelector((state) => state.users.edit);
 
+  console.log(edit);
+
   const editName = () => {
     dispatch(editUser());
   };
+
+  // if (edit === true) {
+  //   return (
+
+  //   );
+  // }
 
   return (
     <div>
@@ -22,25 +30,30 @@ const Account = () => {
               Welcome back
               <br />!
             </h1>
-            edit ? (
-            <div className="edit">
-              <input
-                type="text"
-                className="first"
-                placeholder="Firstname"
-              ></input>
-              <input
-                type="text"
-                className="last"
-                placeholder="Lastname"
-              ></input>
-              <button className="save">Save</button>
-              <button className="cancel">Cancel</button>
-            </div>
-            ):{" "}
-            <button className="edit-button" onClick={editName}>
-              Edit Name
-            </button>
+            {edit === true ? (
+              <div className="edit">
+                <div className="inputChange">
+                  <input
+                    type="text"
+                    className="first"
+                    placeholder="Firstname"
+                  ></input>
+                  <input
+                    type="text"
+                    className="last"
+                    placeholder={"Lastname"}
+                  ></input>
+                </div>
+                <div className="changeBtn">
+                  <button className="save">Save</button>
+                  <button className="cancel">Cancel</button>
+                </div>
+              </div>
+            ) : (
+              <button className="edit-button" onClick={editName}>
+                Edit Name
+              </button>
+            )}
           </div>
 
           <UserAccount />
