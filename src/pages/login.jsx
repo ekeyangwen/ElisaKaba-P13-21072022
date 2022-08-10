@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SignIn from "../Components/SignIn";
 import getAccount from "../services/getAccount";
 import getToken from "../services/getToken";
+import saveForm from "../localStorage";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { login } from "../features/usersSlice";
@@ -9,12 +10,12 @@ import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("undefined");
+  const [password, setPassword] = useState("undefined");
+  const [checked, setChecked] = useState();
 
   const userisLogged = useSelector((state) => state.users.isLogged);
 
-  console.log(userisLogged);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,10 +29,15 @@ const Login = () => {
         dispatch(login());
       }
     }
+    saveForm(userName, userisLogged, checked);
   };
   if (userisLogged) {
     return <Navigate to="/account" />;
   }
+  // const remember = () => {
+  //   if (checked) {
+  //     console.log("check");
+  //   }
 
   return (
     <section className="loginDarkBackground">
@@ -39,7 +45,7 @@ const Login = () => {
         <form className="loginForm" onSubmit={handleSubmit}>
           <SignIn />
           <div className="input-wrapper">
-            <label id="userName" htmlFor="userInput">
+            <label id="userName" htmlFor="userInput" placeholder="Username">
               Username
             </label>
             <input
@@ -68,7 +74,13 @@ const Login = () => {
             <label id="remenberCheckBox" htmlFor="remember-me">
               Remember me
             </label>
-            <input type="checkbox" id="remember-me" />
+            <input
+              type="checkbox"
+              id="remember-me"
+              onChange={() => {
+                setChecked(true);
+              }}
+            />
           </div>
 
           <button className="sign-in-button">Sign In</button>

@@ -1,46 +1,47 @@
 @media screen and (max-width: 720px) {
-}
-.header {
-  .logoNavAndSignIn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 20px;
-    height: 55px;
-  }
-  .signIn,
-  .signOut {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: none;
-    background-color: white;
-    cursor: pointer;
-  }
-  .logo {
-    max-width: 100%;
-    width: 200px;
-    height: 50px;
-  }
-  .headerTitle {
-    display: none;
-  }
-  .main-nav-item {
-    text-decoration: none;
-    margin: 10px;
-    font-weight: bold;
-    color: #2c3e50;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .name,
-  .out {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-  }
-  .okToSign {
-    margin-left: 5px;
+  .header {
+    .logoNavAndSignIn,
+    .returnToAccount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 55px;
+    }
+    .signIn,
+    .signOut,
+    .account {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: none;
+      cursor: pointer;
+    }
+    .logo {
+      max-width: 100%;
+      width: 200px;
+      height: 50px;
+    }
+    .headerTitle {
+      display: none;
+    }
+    .main-nav-item {
+      text-decoration: none;
+      margin: 10px;
+      font-weight: bold;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .name,
+    .out {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+    .okToSign,
+    .okToReturn {
+      margin-left: 5px;
+    }
   }
 }

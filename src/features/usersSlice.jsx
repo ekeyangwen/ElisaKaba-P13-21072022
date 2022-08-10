@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  firstName: "",
-  lastName: "",
+  firstName: "Steve",
+  lastName: "Rogers",
   isLogged: false,
   edit: false,
+  changeName: false,
 };
 
 export const usersSlice = createSlice({
@@ -20,13 +21,19 @@ export const usersSlice = createSlice({
       state.isLogged = false;
     },
 
-    editUser: (state, action) => {
+    editUser: (state) => {
       state.edit = true;
-      // state.firstName = action.payload.firstName;
-      // state.lastName = action.payload.users.lastName;
+    },
+
+    changeFirstName: (state, action) => {
+      state.firstName = action.payload.users.firstName;
+    },
+    changeLastName: (state, action) => {
+      state.lastName = action.payload.users.lastName;
     },
   },
 });
 
-export const { login, logout, editUser } = usersSlice.actions;
+export const { login, logout, editUser, changeFirstName, changeLastName } =
+  usersSlice.actions;
 export default usersSlice.reducer;
