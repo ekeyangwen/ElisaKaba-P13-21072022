@@ -5,8 +5,7 @@ import Footer from "./Components/Footer";
 import Login from "./pages/login";
 import Account from "./pages/account";
 import NotFound from "./pages/notFound";
-import { Provider } from "react-redux";
-import { store } from "./app/store";
+import Transaction from "./pages/transaction";
 
 function App() {
   return (
@@ -17,6 +16,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/account" element={<Account />} />
+          <Route exact path="/transaction" element={<Transaction />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

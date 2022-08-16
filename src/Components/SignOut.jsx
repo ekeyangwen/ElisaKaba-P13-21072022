@@ -8,7 +8,7 @@ const SignOut = () => {
 
   const userLogout = ({ userisLogged }) => {
     userisLogged = true;
-    if (userisLogged === true) {
+    if (userisLogged) {
       dispatch(logout());
     }
   };

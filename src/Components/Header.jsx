@@ -4,8 +4,10 @@ import SignIn from "./SignIn";
 import { useSelector } from "react-redux";
 import SignOut from "./SignOut";
 
-const Header = (userFirstname) => {
+const Header = () => {
   const userisLogged = useSelector((state) => state.users.isLogged);
+  const accountUser = useSelector((state) => state.users.firstName);
+
   return (
     <section className="header">
       <div className="logoNavAndSignIn">
@@ -22,7 +24,7 @@ const Header = (userFirstname) => {
             <NavLink className="main-nav-item" to="/account">
               <div className="account">
                 <i className="fa fa-user-circle"></i>
-                <div className="okToReturn">user</div>
+                <div className="okToReturn">{accountUser}</div>
               </div>
             </NavLink>
             <SignOut />

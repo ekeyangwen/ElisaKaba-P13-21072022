@@ -5,14 +5,15 @@ import getToken from "../services/getToken";
 import saveForm from "../localStorage";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { login } from "../features/usersSlice";
+import { editName, login, tokenForPut } from "../features/usersSlice";
 import { Navigate } from "react-router-dom";
+import NotFound from "./notFound";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [userName, setUserName] = useState("undefined");
-  const [password, setPassword] = useState("undefined");
-  const [checked, setChecked] = useState();
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [checked, setChecked] = useState(false);
 
   const userisLogged = useSelector((state) => state.users.isLogged);
 
@@ -20,25 +21,24 @@ const Login = () => {
     e.preventDefault();
 
     const awaitToken = await getToken(userName, password);
-
     if (awaitToken.status === 200) {
       const token = awaitToken.body.token;
       const awaitAccount = await getAccount(token);
 
       if (awaitAccount.status === 200) {
+        const first = awaitAccount.body.firstName;
+        const last = awaitAccount.body.lastName;
         dispatch(login());
+
+        dispatch(editName({ firstName: first, lastName: last }));
+        // saveForm(userName, userisLogged, checked, password, token, first, last);
       }
+      dispatch(tokenForPut({ tokenSave: token }));
     }
-    saveForm(userName, userisLogged, checked);
   };
   if (userisLogged) {
     return <Navigate to="/account" />;
   }
-  // const remember = () => {
-  //   if (checked) {
-  //     console.log("check");
-  //   }
-
   return (
     <section className="loginDarkBackground">
       <section className="sign-in-content">

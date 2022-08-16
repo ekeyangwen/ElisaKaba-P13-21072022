@@ -1,47 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import UserAccount from "../Components/UserAccount";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { editUser } from "../features/usersSlice";
-import { useState } from "react";
-import { changeFirstName } from "../features/usersSlice";
-import { changeLastName } from "../features/usersSlice";
+import { editUser, editName } from "../features/usersSlice";
+import { stopEditUser } from "../features/usersSlice";
+import PutProfile from "../services/putProfile";
 
 const Account = () => {
   const dispatch = useDispatch();
-
-  const [stopEdit, setStopEdit] = useState(false);
   const edit = useSelector((state) => state.users.edit);
-  const firstName = useSelector((state) => state.users.firstName);
-  const lastName = useSelector((state) => state.users.lastName);
+  const accountFirstUser = useSelector((state) => state.users.firstName);
+  const accountLastUser = useSelector((state) => state.users.lastName);
+  const [saveInputFirst, setSaveInputFirst] = useState("");
+  const [saveInputLast, setSaveInputLast] = useState("");
+  const saveToken = useSelector((state) => state.users.tokenSave);
+  const removeEdit = useSelector((state) => state.users.stopEdit);
 
-  console.log("first", firstName);
-  console.log("last", lastName);
-
-  const editName = () => {
+  const editUserName = () => {
     dispatch(editUser());
   };
 
-  const firstChange = () => {
-    dispatch(changeFirstName());
-  };
-  const lastChange = () => {
-    dispatch(changeLastName());
+  const save = () => {
+    console.log("saveFirst:", saveInputFirst);
+    console.log("saveLast:", saveInputLast);
+    console.log("token:", saveToken);
+    PutProfile(saveToken, saveInputFirst, saveInputLast);
+    dispatch(editName({ firstName: saveInputFirst, lastName: saveInputLast }));
   };
 
-  // if (stopEdit) {
-  //   return edit === false;
-  // }
-  console.log(edit);
+  const stopEdit = () => {
+    dispatch(stopEditUser());
+    console.log(removeEdit);
+    setSaveInputFirst("");
+    setSaveInputLast("");
+  };
 
   return (
     <div>
       <section className="loginDarkBackground">
         <section className="userAccount">
           <div className="welcome">
-            <h1 className="userName">
-              Welcome back {firstName} {lastName}!
-              <br />
+            <h1 className="userID">
+              Welcome back <br />
+              {accountFirstUser} {accountLastUser}
             </h1>
             {edit ? (
               <div className="edit">
@@ -51,7 +52,7 @@ const Account = () => {
                     className="first"
                     placeholder="Firstname"
                     onChange={(e) => {
-                      firstChange();
+                      setSaveInputFirst(e.target.value);
                     }}
                   ></input>
                   <input
@@ -59,17 +60,21 @@ const Account = () => {
                     className="last"
                     placeholder="Lastname"
                     onChange={(e) => {
-                      lastChange();
+                      setSaveInputLast(e.target.value);
                     }}
                   ></input>
                 </div>
                 <div className="changeBtn">
-                  <button className="save">Save</button>
-                  <button className="cancel">Cancel</button>
+                  <button className="save" onClick={save}>
+                    Save
+                  </button>
+                  <button className="cancel" onClick={stopEdit}>
+                    Cancel
+                  </button>
                 </div>
               </div>
             ) : (
-              <button className="edit-button" onClick={editName}>
+              <button className="edit-button" onClick={editUserName}>
                 Edit Name
               </button>
             )}

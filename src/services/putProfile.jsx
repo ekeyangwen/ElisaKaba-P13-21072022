@@ -1,6 +1,6 @@
-const PutProfile = async (token) => {
-  const bearerToken = `Bearer ${token}`;
-
+const PutProfile = async (tokenSave, firstName, lastName) => {
+  console.log(tokenSave);
+  const bearerToken = `Bearer ${tokenSave}`;
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/profile", {
       method: "PUT",
@@ -9,8 +9,8 @@ const PutProfile = async (token) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        firstName: "Steve",
-        lastName: "Rogers",
+        firstName: firstName,
+        lastName: lastName,
       }),
     });
     console.log(response);
@@ -18,7 +18,6 @@ const PutProfile = async (token) => {
     console.log(data);
     return data;
   } catch (erreur) {
-    console.log(erreur);
     return erreur;
   }
 };

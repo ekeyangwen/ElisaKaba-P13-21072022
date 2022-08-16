@@ -13,7 +13,7 @@ const GetToken = async (userName, password) => {
     const data = await response.json();
     return data;
   } catch (erreur) {
-    return erreur;
+    return console.log(erreur);
   }
 };
 

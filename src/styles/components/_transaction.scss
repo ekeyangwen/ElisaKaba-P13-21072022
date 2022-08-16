@@ -1,0 +1,20 @@
+@media screen and (max-width: 720px) {
+  .transactionInfos {
+    background-color: #dfe6ed;
+    color: #283845;
+
+    .account-content-wrapper {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 0.5;
+    }
+    .bankChecking {
+      background-color: #fff;
+      text-align: center;
+      padding: 11px;
+      border: solid 3px #9eadba;
+      border-right: 2px;
+      border-left: 2px;
+    }
+  }
+}
