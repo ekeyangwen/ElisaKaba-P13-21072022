@@ -48,6 +48,9 @@
       box-shadow: none;
       border-color: rgb(133, 133, 133);
     }
+    * #userInput {
+      margin-bottom: 30px;
+    }
     #password,
     #userName {
       font-weight: bold;
@@ -56,7 +59,8 @@
     #remember-me {
       font-weight: 500;
     }
-    .sign-in-button {
+    .sign-in-button,
+    .refreshBtn {
       display: block;
       width: 100%;
       padding: 8px;
@@ -70,6 +74,12 @@
       box-shadow: none;
       border: 0 none;
       outline: 0;
+    }
+    .errorPage {
+      width: 245px;
+    }
+    .errorMessage {
+      text-align: center;
     }
   }
 }

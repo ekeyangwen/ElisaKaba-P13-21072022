@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import SignIn from "../Components/SignIn";
 import getAccount from "../services/getAccount";
 import getToken from "../services/getToken";
-import saveForm from "../localStorage";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { editName, login, tokenForPut } from "../features/usersSlice";
-import { Navigate } from "react-router-dom";
-import NotFound from "./notFound";
+import { Navigate, NavLink } from "react-router-dom";
+import Error from "../Components/Error";
 
 const Login = () => {
   const dispatch = useDispatch();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [checked, setChecked] = useState(false);
+  const [error, SetError] = useState(false);
 
   const userisLogged = useSelector((state) => state.users.isLogged);
 
@@ -35,6 +34,9 @@ const Login = () => {
       }
       dispatch(tokenForPut({ tokenSave: token }));
     }
+    if (awaitToken.status === 400) {
+      SetError(true);
+    }
   };
   if (userisLogged) {
     return <Navigate to="/account" />;
@@ -43,47 +45,56 @@ const Login = () => {
     <section className="loginDarkBackground">
       <section className="sign-in-content">
         <form className="loginForm" onSubmit={handleSubmit}>
-          <SignIn />
-          <div className="input-wrapper">
-            <label id="userName" htmlFor="userInput" placeholder="Username">
-              Username
-            </label>
-            <input
-              type="text"
-              id="userInput"
-              required={true}
-              onChange={(e) => {
-                setUserName(e.target.value);
-              }}
-            />
-          </div>
-          <div className="input-wrapper">
-            <label id="password" htmlFor="passwordInput">
-              Password
-            </label>
-            <input
-              type="password"
-              id="passwordInput"
-              required={true}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <div className="input-remember">
-            <label id="remenberCheckBox" htmlFor="remember-me">
-              Remember me
-            </label>
-            <input
-              type="checkbox"
-              id="remember-me"
-              onChange={() => {
-                setChecked(true);
-              }}
-            />
-          </div>
+          {error ? (
+            <div>
+              <Error />
+            </div>
+          ) : (
+            <div className="noErrorInput">
+              <div className="signToLogin">
+                <NavLink className="main-nav-item" to="/login">
+                  <div className="signIn">
+                    <i className="fa fa-user-circle"></i>
+                    <p className="okToSign">Sign In</p>
+                  </div>
+                </NavLink>
+              </div>
+              <div className="input-wrapper">
+                <label id="userName" htmlFor="userInput" placeholder="Username">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  id="userInput"
+                  required={true}
+                  onChange={(e) => {
+                    setUserName(e.target.value);
+                  }}
+                />
 
-          <button className="sign-in-button">Sign In</button>
+                <div className="input-wrapper">
+                  <label id="password" htmlFor="passwordInput">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="passwordInput"
+                    required={true}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="input-remember">
+                  <label id="remenberCheckBox" htmlFor="remember-me">
+                    Remember me
+                  </label>
+                  <input type="checkbox" id="remember-me" />
+                </div>
+              </div>
+              <button className="sign-in-button">Sign In</button>{" "}
+            </div>
+          )}
         </form>
       </section>
     </section>
