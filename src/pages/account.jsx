@@ -42,7 +42,7 @@ const Account = () => {
           <div className="welcome">
             <h1 className="userID">
               Welcome back <br />
-              {accountFirstUser} {accountLastUser}
+              {accountFirstUser} {accountLastUser}!
             </h1>
             {edit ? (
               <div className="edit">
@@ -50,7 +50,7 @@ const Account = () => {
                   <input
                     type="text"
                     className="first"
-                    placeholder="Firstname"
+                    placeholder={accountFirstUser}
                     onChange={(e) => {
                       setSaveInputFirst(e.target.value);
                     }}
@@ -58,7 +58,7 @@ const Account = () => {
                   <input
                     type="text"
                     className="last"
-                    placeholder="Lastname"
+                    placeholder={accountLastUser}
                     onChange={(e) => {
                       setSaveInputLast(e.target.value);
                     }}

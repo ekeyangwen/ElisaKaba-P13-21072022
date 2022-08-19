@@ -26,30 +26,36 @@ const UserAccount = () => {
   console.log();
   return (
     <div className="transaction">
-      <div className="account-content-wrapper">
-        <h3 className="account-title">{BankAccount[0].type}</h3>
-        <p className="account-amount">{BankAccount[0].amount}</p>
-        <p className="account-amount-description">
-          {BankAccount[0].description}
-        </p>
+      <section className="account">
+        <div className="account-content-wrapper">
+          <h3 className="account-title">{BankAccount[0].type}</h3>
+          <p className="account-amount">{BankAccount[0].amount}</p>
+          <p className="account-amount-description">
+            {BankAccount[0].description}
+          </p>{" "}
+        </div>
         <TransactionBtn />
-      </div>
-      <div className="account-content-wrapper">
-        <h3 className="account-title">{BankAccount[1].type}</h3>
-        <p className="account-amount">{BankAccount[1].amount}</p>
-        <p className="account-amount-description">
-          {BankAccount[1].description}
-        </p>
+      </section>
+      <section className="account">
+        <div className="account-content-wrapper">
+          <h3 className="account-title">{BankAccount[1].type}</h3>
+          <p className="account-amount">{BankAccount[1].amount}</p>
+          <p className="account-amount-description">
+            {BankAccount[1].description}
+          </p>
+        </div>
         <TransactionBtn />
-      </div>
-      <div className="account-content-wrapper">
-        <h3 className="account-title">{BankAccount[2].type}</h3>
-        <p className="account-amount">{BankAccount[2].amount}</p>
-        <p className="account-amount-description">
-          {BankAccount[2].description}
-        </p>
+      </section>
+      <section className="account">
+        <div className="account-content-wrapper">
+          <h3 className="account-title">{BankAccount[2].type}</h3>
+          <p className="account-amount">{BankAccount[2].amount}</p>
+          <p className="account-amount-description">
+            {BankAccount[2].description}
+          </p>{" "}
+        </div>
         <TransactionBtn />
-      </div>
+      </section>
     </div>
   );
 };

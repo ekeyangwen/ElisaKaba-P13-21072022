@@ -1,5 +1,4 @@
 const GetToken = async (userName, password) => {
-  const error = console.log("erreur!");
   try {
     const response = await fetch("http://localhost:3001/api/v1/user/login", {
       method: "POST",
@@ -14,7 +13,7 @@ const GetToken = async (userName, password) => {
     const data = await response.json();
     return data;
   } catch (erreur) {
-    return error;
+    return erreur;
   }
 };
 
