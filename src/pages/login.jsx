@@ -16,6 +16,9 @@ const Login = () => {
 
   const userisLogged = useSelector((state) => state.users.isLogged);
 
+  /**
+   * all actions when the login btn is cliqued
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 

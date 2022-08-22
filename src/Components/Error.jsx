@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ *
+ * @returns error in case of wrong username or password
+ */
 const Error = () => {
   return (
     <div className="errorPage">

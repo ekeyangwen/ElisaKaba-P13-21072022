@@ -8,6 +8,9 @@ const initialState = {
   tokenSave: "",
 };
 
+/**
+ * createSlice for REDUX
+ */
 export const usersSlice = createSlice({
   name: "users",
   initialState,

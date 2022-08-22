@@ -3,9 +3,17 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../features/usersSlice";
 
+/**
+ *
+ * @returns component sign out
+ */
 const SignOut = () => {
   const dispatch = useDispatch();
 
+  /**
+   *
+   * @param {boolean} userisLogged return if user is logged or not and show the component logout if user is logged
+   */
   const userLogout = ({ userisLogged }) => {
     userisLogged = true;
     if (userisLogged) {

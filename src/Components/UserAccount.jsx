@@ -1,6 +1,10 @@
 import React from "react";
 import TransactionBtn from "../Components/TransactionBtn";
 
+/**
+ *
+ * @returns the transaction of a user witch is login
+ */
 const UserAccount = () => {
   const BankAccount = [
     {

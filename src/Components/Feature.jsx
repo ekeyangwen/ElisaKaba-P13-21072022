@@ -1,5 +1,9 @@
 import React from "react";
-
+/**
+ *
+ * @param {string} params Contains all informations for features
+ * @returns features
+ */
 const Feature = ({ title, content, image, alt }) => {
   return (
     <div className="feature-item">

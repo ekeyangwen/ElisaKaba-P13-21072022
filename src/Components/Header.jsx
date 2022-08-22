@@ -4,6 +4,10 @@ import SignIn from "./SignIn";
 import { useSelector } from "react-redux";
 import SignOut from "./SignOut";
 
+/**
+ *
+ * @returns header
+ */
 const Header = () => {
   const userisLogged = useSelector((state) => state.users.isLogged);
   const accountUser = useSelector((state) => state.users.firstName);

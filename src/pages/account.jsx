@@ -16,10 +16,16 @@ const Account = () => {
   const saveToken = useSelector((state) => state.users.tokenSave);
   const removeEdit = useSelector((state) => state.users.stopEdit);
 
+  /**
+   * function for editing user name
+   */
   const editUserName = () => {
     dispatch(editUser());
   };
 
+  /**
+   * recuperation of informations to save the new name when editing
+   */
   const save = () => {
     console.log("saveFirst:", saveInputFirst);
     console.log("saveLast:", saveInputLast);
@@ -28,6 +34,9 @@ const Account = () => {
     dispatch(editName({ firstName: saveInputFirst, lastName: saveInputLast }));
   };
 
+  /**
+   * function to cancel and close the input
+   */
   const stopEdit = () => {
     dispatch(stopEditUser());
     console.log(removeEdit);
