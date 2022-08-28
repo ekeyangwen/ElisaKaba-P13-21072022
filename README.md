@@ -1,36 +1,51 @@
 ## Table of Contents
-1. [General Info](#general-info)
+1. [General Info](#general-information)
 2. [ScreenShots](#screenshots)
 3. [Technologies](#technologies)
-4. [Installation](#installation)
-5. [Launch the project](#launch)
+4. [Prerequisites](#prerequisites)
+5. [Run API](#-run-api-and-database)
+6. [Launch the project](#launch-the-project)
+
 ### General information
 ***
 This README file contains all informations to launch the project of Argent Bank. This project is a dashbord for users who want to have a look on theire account.
 
 ### ScreenShots
 ***
-
-![Home](https://user-images.githubusercontent.com/81231487/179772487-6009bcfe-8231-48d0-b9ce-feef034e4706.png)
-![Screeshot from the mocked data](https://user-images.githubusercontent.com/81231487/179772648-079b69c3-d4b8-4295-b14b-82d12b9eb1df.png)
-![Screshot from the API](https://user-images.githubusercontent.com/81231487/179772870-67fcea0d-f7b8-49f7-9748-b6a4675dfa97.png)
+![Home](https://user-images.githubusercontent.com/81231487/187059476-fcc3af18-d438-4c35-bf5c-3ed764be3f12.png)
+![argentBankSign](https://user-images.githubusercontent.com/81231487/187059487-255cbbfd-6017-4f79-8d3a-d237ded153e4.png)
+![argentBankEdit](https://user-images.githubusercontent.com/81231487/187059500-26ed201d-75a1-4fa5-98c9-388651618f8a.png)
 
 ### Technologies
 ***
  * [NodeJS] (https://nodejs.org/en/) (version 16.16.0 LTS)
- * [Yarn] (https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
-  If you are working with several versions of NodeJS, we recommend you install nvm. This tool will allow you to easily manage your NodeJS versions.
- * [REACT]
- * [Recharts]
-  
-### Installation (run the API)
+ * [npm] (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+ * [REACT] (https://fr.reactjs.org/docs/create-a-new-react-app.html)
+ * [REDUX Toolkit] (https://redux.js.org/introduction/getting-started)
+
+### Prerequisites
+***
+Argent Bank uses the following tech stack:
+
+- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+
+Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
+
+```bash
+# Check Node.js version
+node --version
+
+# Check Mongo version
+mongo --version
+```
+### c
 ***
 ```
- $ Fork this repository (https://github.com/ekeyangwen/repo_OC_P12.git) from the developper branch
+ $ Fork this repository (https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API.git)
  $ Clone it on your computer.
  $ The yarn command will allow you to install the dependencies.
  $ Go to your project directory with the cd command.
- $ The yarn dev command will allow you to run the micro API.
+ $ The npm run dev:server command will allow you to run the micro API.
 ```  
 ### Launch the project (launch the project)
 ***
