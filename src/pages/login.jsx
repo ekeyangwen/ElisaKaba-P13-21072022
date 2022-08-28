@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SignIn from "../Components/SignIn";
 import getAccount from "../services/getAccount";
 import getToken from "../services/getToken";
 import { useSelector } from "react-redux";
@@ -33,7 +32,6 @@ const Login = () => {
         dispatch(login());
 
         dispatch(editName({ firstName: first, lastName: last }));
-        // saveForm(userName, userisLogged, checked, password, token, first, last);
       }
       dispatch(tokenForPut({ tokenSave: token }));
     }

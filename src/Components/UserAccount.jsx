@@ -3,7 +3,7 @@ import TransactionBtn from "../Components/TransactionBtn";
 
 /**
  *
- * @returns the transaction of a user witch is login
+ * @returns the transactions of the logged user
  */
 const UserAccount = () => {
   const BankAccount = [
