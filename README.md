@@ -3,8 +3,8 @@
 2. [ScreenShots](#screenshots)
 3. [Technologies](#technologies)
 4. [Prerequisites](#prerequisites)
-5. [Launch database] (#launch-database)
-6. [Run API](#-run-api-and-database)
+5. [Launch database](#launch-database)
+6. [Run API](#run-api)
 7. [Launch the project](#launch-the-project)
 
 ### General information
@@ -46,7 +46,7 @@ $ Download MongoDB
 $ Install MongoDB
 $ Run MongoDB with the npm install mongoose command
 ```
-### Run API and database
+### Run API
 ***
 ```
  $ The npm run dev:server command will allow you to run the micro API.
