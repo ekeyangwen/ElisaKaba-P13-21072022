@@ -6,8 +6,7 @@
 5. [Launch the project](#launch)
 ### General information
 ***
-This Sportsee project presents an analytic health tab for two users whith grafiks from Recharts. It's available from mocked data or API.
-This readme file contains all the steps to launch the project.
+This README file contains all informations to launch the project of Argent Bank. This project is a dashbord for users who want to have a look on theire account.
 
 ### ScreenShots
 ***
