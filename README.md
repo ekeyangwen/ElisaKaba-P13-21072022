@@ -2,10 +2,9 @@
 1. [General Info](#general-information)
 2. [ScreenShots](#screenshots)
 3. [Technologies](#technologies)
-4. [Prerequisites](#prerequisites)
-5. [Launch database](#launch-database)
-6. [Run API](#run-api)
-7. [Launch the project](#launch-the-project)
+4. [Launch database](#launch-database)
+5. [Run API](#run-api)
+6. [Launch the project](#launch-the-project)
 
 ### General information
 ***
@@ -23,40 +22,33 @@ This README file contains all informations to launch the project of Argent Bank.
  * [npm] (https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
  * [REACT] (https://fr.reactjs.org/docs/create-a-new-react-app.html)
  * [REDUX Toolkit] (https://redux.js.org/introduction/getting-started)
-
-### Prerequisites
-***
-Argent Bank uses the following tech stack:
-
-- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
-
-Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
-
-```bash
-# Check Node.js version
+ 
+ # Check Node.js version
 node --version
 
-# Check Mongo version
-mongo --version
-```
-### Launch database
-***
-```
-$ Download MongoDB
-$ Install MongoDB
-$ Run MongoDB with the npm install mongoose command
-```
 ### Run API
 ***
 ```
- $ The npm run dev:server command will allow you to run the micro API.
+ $ Fork this repository (https://github.com/ekeyangwen/OC-P13.git) on (https://github.com/ekeyangwen/OC-P13).
+ $ Clone it on your computer.
+ $ The npm install command will allow you to install the dependencies.
+ $ Go to your project directory with the cd command.
+ $ The npm run dev:server command will allow you to run the API.
 ```  
+### Launch database
+***
+You have to launch database just one time
+```
+$ [Download MongoDB](https://www.mongodb.com/try/download/community)
+$ Install MongoDB
+$ Run MongoDB with the npm install mongoose command
+```
 ### Launch the project
 ***
 ```
- $ Fork this repository (https://github.com/ekeyangwen/ElisaKaba-P12-12042022.git).
+ $ Fork this repository (https://github.com/ekeyangwen/ElisaKaba-P13-21072022.git) on (https://github.com/ekeyangwen/ElisaKaba-P13-21072022).
  $ Clone it on your computer.
- $ The yarn command will allow you to install the dependencies.
+ $ The npm install command will allow you to install the dependencies.
  $ Go to your project directory with the cd command.
- $ The yarn start command will allow you to launch the project.
+ $ The npm start command will allow you to launch the project.
 ```
