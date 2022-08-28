@@ -3,8 +3,9 @@
 2. [ScreenShots](#screenshots)
 3. [Technologies](#technologies)
 4. [Prerequisites](#prerequisites)
-5. [Run API](#-run-api-and-database)
-6. [Launch the project](#launch-the-project)
+5. [Launch database] (#launch-database)
+6. [Run API](#-run-api-and-database)
+7. [Launch the project](#launch-the-project)
 
 ### General information
 ***
@@ -38,16 +39,19 @@ node --version
 # Check Mongo version
 mongo --version
 ```
-### c
+### Launch database
 ***
 ```
- $ Fork this repository (https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API.git)
- $ Clone it on your computer.
- $ The yarn command will allow you to install the dependencies.
- $ Go to your project directory with the cd command.
+$ Download MongoDB
+$ Install MongoDB
+$ Run MongoDB with the npm install mongoose command
+```
+### Run API and database
+***
+```
  $ The npm run dev:server command will allow you to run the micro API.
 ```  
-### Launch the project (launch the project)
+### Launch the project
 ***
 ```
  $ Fork this repository (https://github.com/ekeyangwen/ElisaKaba-P12-12042022.git).
